@@ -4,7 +4,7 @@
 /***/ 6678:
 /***/ ((module) => {
 
-module.exports="1.1.8";
+module.exports="1.1.9";
 
 /***/ }),
 
@@ -480,13 +480,13 @@ const data=require(path.str());
 if (data==null){
 throw Error(`Libris config file "${path.str()}" does not export a configuration object.`);
 }else if (!(data instanceof Config)){
-data=new Config(config);
+data=new Config(data);
 }
 return data;
 }
 else {
-let data=path.load_sync();
 try {
+let data=path.load_sync();
 data=JSON.parse(data);
 if (data.meta!=null){
 data.meta=new Meta(data.meta);
