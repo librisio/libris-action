@@ -36174,9 +36174,11 @@ const github = __nccwpck_require__(2347);
 const libfs = __nccwpck_require__(7147);
 const { Octokit } = __nccwpck_require__(8099);
 const {Client, Config} = __nccwpck_require__(6107);
+const {child_process} = __nccwpck_require__(6107);
 
 // Update a single file.
 async function update_file(path, data) {
+    console.log(`Saving documentation to "${path}".`);
 
     // Vars.
     const token = process.env.GITHUB_TOKEN;
@@ -36220,11 +36222,17 @@ async function update_file(path, data) {
 
 // Generate documentation using the API.
 async function generate_docs(config_path, output_path) {
+    console.log("Generating documentation.");
 
     // Load the config.
     const full_config_path = `${process.env.GITHUB_WORKSPACE}/${config_path}`;
     if (!libfs.existsSync(full_config_path)) {
-        throw new Error(`Defined config path "${config_path}" does not exist (full path ${full_config_path}).`);
+        let dir_dump = "";
+        libfs.readdirSync(process.cwd()).forEach((path) => {
+            dir_dump += ` - ${path}\n`
+        })
+        dir_dump = dir_dump.substr(0, dir_dump.length - 1)
+        throw new Error(`Defined config path "${config_path}" does not exist (full path ${full_config_path}). Current working directory: \n${dir_dump}`);
     }
     const config = Config.load(full_config_path);
 
@@ -36275,7 +36283,7 @@ async function main() {
 
     // Cacth error.
     catch (error) {
-        core.setFailed(`Action failed with error: ${error}`);
+        core.setFailed(error.message != null ? error.message : `Action failed with error: ${error}`);
     }
 }
 
