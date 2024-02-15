@@ -1,0 +1,16 @@
+name: Libris - Generate Documentation
+jobs:
+  update-file:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Libris - Generate Documentation
+        uses: librisio/libris-auto-gen@main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          LIBRIS_API_KEY: ${{ secrets.LIBRIS_API_KEY }}
+        with:
+          config: './docs/libris.json'
+          output: './docs/index.html'

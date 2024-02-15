@@ -1,0 +1,15 @@
+on: push
+name: 'Libris Auto-Generate Action'
+description: 'Automatically update your documentation on every git push.'
+inputs:
+  config:
+    description: 'The path to the JSON or JavaScript libris config file.'
+    required: false
+    default: "./docs/libris.json"
+  output:
+    description: 'The output path for the generated html documentation.'
+    required: true
+    default: "./docs/index.html"
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
