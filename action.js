@@ -12,9 +12,9 @@ async function update_file(branch, path, data) {
     const token = process.env.GITHUB_TOKEN;
     const octokit = new Octokit({ auth: token });
     const context = github.context;
-    if (branch === "") {
+    // if (branch === "") {
         branch = context.ref.replace('refs/heads/', '');
-    }
+    // }
     const owner = context.repo.owner;
     const repo = context.repo.repo;
 
@@ -53,6 +53,7 @@ async function update_file(branch, path, data) {
         });
     } catch (error) {
         console.error(`Failed to update repository path "${path}".`)
+        throw error;
     }
 }
 
