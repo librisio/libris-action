@@ -86,9 +86,9 @@ jobs:
 
 For the action to access the Libris API, you must provide your Libris API Key as a secret in your repository.
 
-1. Navigate to Settings > Secrets and variables > Actions in your repository.
-2. Click New repository secret to add a new secret.
-3. Name the secret LIBRIS_API_KEY and paste your Libris API Key into the value field.
+1. In your repository navigate to `Settings` > `Secrets and variables` > `Actions`.
+2. Click `New repository secret` to add a new secret.
+3. Name the secret `LIBRIS_API_KEY` and paste your Libris API Key into the value field.
 
 For more details on obtaining your Libris API Key, consult the [Libris documentation](https://uselibris.io/docs?id=Authentication:API%20Key).
 
