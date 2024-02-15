@@ -27,7 +27,8 @@ Begin by creating a GitHub workflow action file named `libris.yaml` within the `
 ### Configuration Inputs:
 
 * `config`: Specify the relative path to your Libris configuration file, which can be either a JSON or JavaScript file.
-* `output`: Define the relative path for the output of the generated documentation. **Important**: The action will overwrite existing data at this location, so ensure the output path is correctly specified to avoid unintended data loss.
+* `output`: Define the relative path for the output of the generated documentation.
+            **Important**: The action will overwrite existing data at this location, so ensure the output path is correctly specified to avoid unintended data loss.
 
 Example Workflow File: .github/workflows/libris.yaml
 
