@@ -4,7 +4,7 @@
 /***/ 6678:
 /***/ ((module) => {
 
-module.exports="1.1.9";
+module.exports="1.2.0";
 
 /***/ }),
 
@@ -476,7 +476,7 @@ if (!path.exists()){
 throw Error(`Libris config file "${path.str()}" does not exist.`);
 }
 if (path.extension()===".js"){
-const data=require(path.str());
+let data=require(path.str());
 if (data==null){
 throw Error(`Libris config file "${path.str()}" does not export a configuration object.`);
 }else if (!(data instanceof Config)){
