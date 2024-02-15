@@ -30,7 +30,7 @@ Begin by creating a GitHub workflow action file named `libris.yaml` within the `
 * `output`: Define the relative path for the output of the generated documentation.
             **Important**: The action will overwrite existing data at this location, so ensure the output path is correctly specified to avoid unintended data loss.
 
-Example Workflow File: .github/workflows/libris.yaml
+###### .github/workflows/libris.yaml
 
 ```yaml
 name: Libris - Generate Documentation
@@ -98,6 +98,7 @@ To prevent unnecessary pull requests triggered by automated documentation update
 
 Update .gitignore to Exclude the Documentation Output
 
+###### .gitignore
 ```
 docs/index.html
 ```
