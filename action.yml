@@ -14,6 +14,10 @@ inputs:
     description: 'The branch where the new edits will be pushed to. Leave "" to use the branch that is being pushed.'
     required: false
     default: "docs"
+  orphan:
+    description: 'Create an orphan branch when the defined branch does not exist.'
+    required: false
+    default: "true"
 runs:
   using: 'node20'
   main: 'dist/index.js'
