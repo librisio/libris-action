@@ -8,7 +8,7 @@
 
 ![Libris Docs Banner](https://raw.githubusercontent.com/librisio/.github/master/media/github/readme_banner_rounded.png)
 
-## Libris
+# Libris
 Seamlessly integrate Libris with your development workflow to guarantee your documentation remains up-to-date. Our action automates the generation of documentation each time you push to your repository, ensuring accuracy and consistency without manual effort.
 
 * [x] Automatic Documentation Updates: Eliminates the need for manual updates, ensuring your documentation always matches your latest codebase.
@@ -16,10 +16,10 @@ Seamlessly integrate Libris with your development workflow to guarantee your doc
 * [x] Consistency and Accuracy: Maintains high standards of consistency and accuracy in documentation with every code change.
 * [x] Time-Saving: Frees up valuable developer time by automating repetitive tasks, allowing your team to focus on development and innovation.
 
-## Integrating the action into your repository
+# Integrating the action into your repository
 In order to write the generated documentation, the workflow action will require write permission and access to the by github generated secret `GITHUB_TOKEN`.
 
-### Create the workflow file.
+## Create the github workflow file.
 Create the workflow action file under `.github/workflows/libris.yaml`.
 
 Optionally define different values for the inputs `config` and `output` if your file's are located under a different path.
@@ -77,14 +77,14 @@ jobs:
           output: './docs/index.html'
 ```
 
-### Add the LIBRIS_API_KEY to your repository secrets.
+## Add the LIBRIS_API_KEY to your repository secrets.
 Your Libris API Key must be defined in your repository secrets in order to access the Libris API.
 
 To create a secret go to "Your repository -> Settings -> Secrets and variables -> Actions". Once there click the "New repository secret" to create a new secret. Assign the name `LIBRIS_API_KEY` to the secret and paste your Libris API Key into the value section.
 
 More information about obtaining a Libris API Key can be found in the [documentation](https://uselibris.io/docs?id=Authentication:API%20Key).
 
-### Add output to .gitignore (optional).
+## Add output to .gitignore (optional).
 Since the workflow action writes the generated HTML file to your repository. It is advised to add the specified HTML output path to your `.gitignore`. Therefore, you will avoid the required pull requests after the workflow action has finished.
 
 ###### .gitinore
