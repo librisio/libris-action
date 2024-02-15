@@ -36208,15 +36208,19 @@ async function update_file(path, data) {
     }
 
     // Create or update the file
-    await octokit.request('PUT /repos/{owner}/{repo}/contents/{path}', {
-        owner,
-        repo,
-        path,
-        message: "Updated auto-generated documentation",
-        content,
-        sha, // If undefined, a new file will be created
-        branch,
-    });
+    try {
+        await octokit.request('PUT /repos/{owner}/{repo}/contents/{path}', {
+            owner,
+            repo,
+            path,
+            message: "Updated auto-generated documentation",
+            content,
+            sha, // If undefined, a new file will be created
+            branch,
+        });
+    } catch (error) {
+        console.error(`Failed to update repository path "${path}".`)
+    }
 }
 
 // Generate documentation using the API.
@@ -36271,6 +36275,12 @@ async function main() {
         }
         if (typeof process.env.LIBRIS_API_KEY !== "string" || process.env.LIBRIS_API_KEY === "") {
             throw new Error('Define environment variable "LIBRIS_API_KEY" using your repository secrets.');
+        }
+
+        // Clean output path.
+        let c;
+        while (output_path.length > 0 && ((c = output_path.charAt(0)) === "." || c == "/")) {
+            output_path = output_path.substr(1);
         }
 
         // Generate documentation.
