@@ -4,7 +4,7 @@
 /***/ 6678:
 /***/ ((module) => {
 
-module.exports="1.2.0";
+module.exports="1.2.1";
 
 /***/ }),
 
@@ -482,6 +482,7 @@ throw Error(`Libris config file "${path.str()}" does not export a configuration 
 }else if (!(data instanceof Config)){
 data=new Config(data);
 }
+data.config_path=path.str();
 return data;
 }
 else {
@@ -594,8 +595,6 @@ new vlib.Path(output).save_sync(html);
 return reject(new Error(`Unable to save the generated documentation to specified output path "${output}": ${error.message}.`));
 }
 })
-}else if (build_html){
-throw Error(`${this.config.config_path.str()}: No output path has been defined in the config, define parameter "Config.output".`);
 }
 return resolve(response);
 });
