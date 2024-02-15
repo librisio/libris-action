@@ -124,8 +124,9 @@ class Action {
             repo: this.repo,
             tree: [{
                 path: this.output_path,
-                mode: '100644', // blob (file)
-                content: Buffer.from(this.html).toString('base64'),
+                mode: "100644", // blob (file)
+                type: "blob",
+                content: this.html,
             }],
         });
 
@@ -133,7 +134,7 @@ class Action {
         const { data: commit } = await this.octokit.git.createCommit({
             owner: this.owner,
             repo: this.repo,
-            message: 'Create orphan branch with a single file',
+            message: "Create orphan branch with a single file",
             tree: tree.sha,
             parents: [], // No parents to make it an orphan commit
         });

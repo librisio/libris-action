@@ -86,6 +86,9 @@ jobs:
           # The branch to where the newly generated documentation file will be pushed to.
           # Leave "" to use the branch that is being pushed.
           branch: 'docs'
+
+          # Create an orphan branch when the defined branch does not exist.
+          orphan: 'true'
 ```
 
 ## Adding Your Libris API Key to Repository Secrets
