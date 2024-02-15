@@ -18,16 +18,16 @@ Seamlessly integrate Libris with your development workflow to guarantee your doc
 
 # Integrating the Action into Your Repository
 
-To facilitate automatic documentation updates within your repository, the Libris Documentation Generator Action requires write permissions and access to the GitHub-generated GITHUB_TOKEN secret. This guide outlines the steps to seamlessly integrate this action into your workflow.
+To facilitate automatic documentation updates within your repository, the workflow action requires write permissions and access to the GitHub-generated `GITHUB_TOKEN` secret. This guide outlines the steps to seamlessly integrate this action into your workflow.
 
 ## Setting Up the GitHub Workflow File
 
-Begin by creating a GitHub workflow action file named libris.yaml within the .github/workflows directory of your repository. This action automates the documentation generation process, ensuring your project's documentation remains current with every push.
+Begin by creating a GitHub workflow action file named `libris.yaml` within the `.github/workflows` directory of your repository. This action automates the documentation generation process, ensuring your project's documentation remains up-to-date with every push.
 
 ### Configuration Inputs:
 
-    config: Specify the relative path to your Libris configuration file, which can be either a JSON or JavaScript file.
-    output: Define the relative path for the output of the generated documentation. Important: The action will overwrite existing data at this location, so ensure the output path is correctly specified to avoid unintended data loss.
+* `config`: Specify the relative path to your Libris configuration file, which can be either a JSON or JavaScript file.
+* `output`: Define the relative path for the output of the generated documentation. **Important**: The action will overwrite existing data at this location, so ensure the output path is correctly specified to avoid unintended data loss.
 
 Example Workflow File: .github/workflows/libris.yaml
 
