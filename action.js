@@ -112,7 +112,8 @@ async function main() {
 
     // Cacth error.
     catch (error) {
-        core.setFailed(error.message != null ? error.message : `Action failed with error: ${error}`);
+        console.error(error);
+        core.setFailed(error.message != null ? error.message : `Action failed with error: ${error}`)
     }
 }
 
