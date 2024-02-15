@@ -36246,7 +36246,7 @@ async function generate_docs(config_path, output_path) {
     });
 
     // Generate the documentation.
-    const response = await client.generate_docs(true);
+    const response = await client.generate(true);
 
     // Return the html.
     return response.html;
