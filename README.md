@@ -20,6 +20,8 @@ Seamlessly integrate Libris with your development workflow to guarantee your doc
 
 To facilitate automatic documentation updates within your repository, the workflow action requires write permissions and access to the GitHub-generated `GITHUB_TOKEN` secret. This guide outlines the steps to seamlessly integrate this action into your workflow.
 
+In this guide we will set up the Libris Action in combination with a GitHub Page. Once set-up, every update pushed to your repository triggers the automatic publication of your latest documentation to your GitHub Page.
+
 ## Setting Up the GitHub Workflow File
 
 Begin by creating a GitHub workflow action file named `libris.yaml` within the `.github/workflows` directory of your repository. This action automates the documentation generation process, ensuring your project's documentation remains up-to-date with every push.
@@ -88,7 +90,7 @@ jobs:
           branch: 'docs'
 
           # Create an orphan branch when the defined branch does not exist.
-          orphan: 'false'
+          orphan: 'true'
 ```
 
 ## Adding Your Libris API Key to Repository Secrets
@@ -101,13 +103,13 @@ For the action to access the Libris API, you must provide your Libris API Key as
 
 For more details on obtaining your Libris API Key, consult the [Libris documentation](https://uselibris.io/docs?id=Authentication:API%20Key).
 
-<!--
-## Optional: Exclude Output from Version Control
+## Optional: Enable GitHub Pages for Your Project
 
-To prevent unnecessary pull requests triggered by automated documentation updates, consider adding the output HTML file to your `.gitignore`. This step ensures that the generated documentation does not clutter your repository's version history.
+Elevate your project's visibility and accessibility by setting up a GitHub Pages site to host your documentation.
 
-###### .gitignore
-```
-docs/index.html
-```
--->
+1. In your repository navigate to `Settings` > `Pages`.
+2. Select `Deploy from branch` from section `Build and deployment` > `Source`.
+3. Select branch `docs` from section `Build and deployment` > `Branch`. **This branch will not show up when the GitHub action has never been triggered.**
+4. Select folder `/docs` from section `Build and deployment` > `Branch`.
+
+By configuring GitHub Pages to deploy from the docs branch and the /docs folder, you ensure that every update pushed to your repository triggers the automatic publication of your latest documentation to docs:/docs/index.html. The GitHub Pages site will seamlessly update following the completion of the GitHub Action, presenting your project's documentation in a professional, accessible format.
