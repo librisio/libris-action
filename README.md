@@ -15,3 +15,6 @@ Seamlessly integrate Libris with your development workflow to guarantee your doc
 * [x] Seamless Integration: Easily integrates with your existing GitHub workflow, making it a hassle-free addition to your development process.
 * [x] Consistency and Accuracy: Maintains high standards of consistency and accuracy in documentation with every code change.
 * [x] Time-Saving: Frees up valuable developer time by automating repetitive tasks, allowing your team to focus on development and innovation.
+
+## Warnings:
+- Make sure the specified output path is properly defined. This workflow action will overwrite the file data at the specified output path.

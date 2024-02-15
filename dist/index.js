@@ -36212,7 +36212,7 @@ async function update_file(path, data) {
         owner,
         repo,
         path,
-        message,
+        message: "Updated auto-generated documentation",
         content,
         sha, // If undefined, a new file will be created
         branch,
