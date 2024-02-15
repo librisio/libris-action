@@ -36352,6 +36352,8 @@ class Action {
 
     // Generate documentation using the API.
     async generate_docs() {
+
+        // Logs.
         console.log("Generating documentation.");
 
         // Load the config.
@@ -36397,6 +36399,8 @@ class Action {
 
     // Create new orphan branch.
     async create_orphan_branch(path, data) {
+
+        // Logs.
         console.log(`Creating orphan branch "${this.branch}".`);
 
         // Create a new tree with the file.
@@ -36431,7 +36435,6 @@ class Action {
 
     // Upload the docs file.
     async upload_docs() {
-        console.log(`Uploading the generated documentation to "${this.branch}:${this.output_path}".`);
 
         // Check if branch exists, create if it does not.
         try {
@@ -36452,6 +36455,9 @@ class Action {
                 throw error;
             }
         }
+
+        // Logs.
+        console.log(`Uploading the generated documentation to "${this.branch}:${this.output_path}".`);
 
         // Check if the file exists and get its SHA if it does.
         let sha;
@@ -36489,6 +36495,8 @@ class Action {
     // Start the action.
     static async start() {
         try {
+
+            // Logs.
             console.log(`Starting GitHub Action.`);
 
             // Initialize action.
