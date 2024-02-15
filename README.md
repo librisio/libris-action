@@ -85,7 +85,8 @@ jobs:
           # The relative output path for the generated documentation file.
           output: './docs/index.html'
 
-          # The branch where the new edits will be pushed to. Leave "" to use the branch that is being pushed.
+          # The branch to where the newly generated documentation file will be pushed to.
+          # Leave "" to use the branch that is being pushed.
           branch: 'docs'
 ```
 
