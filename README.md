@@ -108,8 +108,8 @@ For more details on obtaining your Libris API Key, consult the [Libris documenta
 Elevate your project's visibility and accessibility by setting up a GitHub Pages site to host your documentation.
 
 1. In your repository navigate to `Settings` > `Pages`.
-2. Select `Deploy from branch` from section `Build and deployment` > `Source`.
-3. Select branch `docs` from section `Build and deployment` > `Branch`. **This branch will not show up when the GitHub action has never been triggered.**
-4. Select folder `/docs` from section `Build and deployment` > `Branch`.
+2. Select `Deploy from branch` from the section `Build and deployment` > `Source`.
+3. Select branch `docs` from the section `Build and deployment` > `Branch`. *This branch will not show up when the GitHub action has never been triggered.*
+4. Select folder `/docs` from the section `Build and deployment` > `Branch`.
 
 By configuring GitHub Pages to deploy from the docs branch and the /docs folder, you ensure that every update pushed to your repository triggers the automatic publication of your latest documentation to docs:/docs/index.html. The GitHub Pages site will seamlessly update following the completion of the GitHub Action, presenting your project's documentation in a professional, accessible format.
