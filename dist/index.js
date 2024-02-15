@@ -36264,7 +36264,7 @@ async function main() {
         if (typeof config_path !== "string") {
             throw new Error('Define input parameter "config" of type "string".');
         }
-        const output_path = core.getInput("output");
+        let output_path = core.getInput("output");
         if (typeof output_path !== "string") {
             throw new Error('Define input parameter "output" of type "string".');
         }
@@ -36278,6 +36278,7 @@ async function main() {
         }
 
         // Clean output path.
+        output_path = output_path.replaceAll("//", "/");
         let c;
         while (output_path.length > 0 && ((c = output_path.charAt(0)) === "." || c == "/")) {
             output_path = output_path.substr(1);
