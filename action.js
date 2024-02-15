@@ -9,7 +9,7 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 const libfs = require('fs');
-const {Octokit} = require("@octokit/core");
+const {Octokit} = require("@octokit/rest");
 const {Client, Config} = require("./libris-js/libris.js");
 
 // ---------------------------------------------------------
