@@ -50,8 +50,6 @@ jobs:
   update-file:
     runs-on: ubuntu-latest
     steps:
-
-      # Checkout.
       - name: Checkout code
         uses: actions/checkout@v4
 

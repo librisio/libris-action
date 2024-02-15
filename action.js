@@ -7,7 +7,6 @@ const {child_process} = require("./libris-js/libris.js");
 
 // Update a single file.
 async function update_file(branch, path, data) {
-    console.log(`Saving documentation to "${path}".`);
 
     // Vars.
     const token = process.env.GITHUB_TOKEN;
@@ -18,6 +17,8 @@ async function update_file(branch, path, data) {
     }
     const owner = context.repo.owner;
     const repo = context.repo.repo;
+
+    console.log(`Saving documentation to "${branch}:${path}".`);
 
     // Convert content to Base64
     const content = Buffer.from(data).toString('base64');

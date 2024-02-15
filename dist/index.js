@@ -36177,7 +36177,6 @@ const {child_process} = __nccwpck_require__(6107);
 
 // Update a single file.
 async function update_file(branch, path, data) {
-    console.log(`Saving documentation to "${path}".`);
 
     // Vars.
     const token = process.env.GITHUB_TOKEN;
@@ -36188,6 +36187,8 @@ async function update_file(branch, path, data) {
     }
     const owner = context.repo.owner;
     const repo = context.repo.repo;
+
+    console.log(`Saving documentation to "${branch}:${path}".`);
 
     // Convert content to Base64
     const content = Buffer.from(data).toString('base64');
