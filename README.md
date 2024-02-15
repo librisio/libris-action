@@ -92,6 +92,7 @@ For the action to access the Libris API, you must provide your Libris API Key as
 
 For more details on obtaining your Libris API Key, consult the [Libris documentation](https://uselibris.io/docs?id=Authentication:API%20Key).
 
+<!--
 ## Optional: Exclude Output from Version Control
 
 To prevent unnecessary pull requests triggered by automated documentation updates, consider adding the output HTML file to your `.gitignore`. This step ensures that the generated documentation does not clutter your repository's version history.
@@ -100,3 +101,4 @@ To prevent unnecessary pull requests triggered by automated documentation update
 ```
 docs/index.html
 ```
+-->
