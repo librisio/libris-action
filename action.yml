@@ -17,7 +17,7 @@ inputs:
   orphan:
     description: 'Create an orphan branch when the defined branch does not exist.'
     required: false
-    default: "true"
+    default: "false"
 runs:
   using: 'node20'
   main: 'dist/index.js'

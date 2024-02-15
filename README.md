@@ -88,7 +88,7 @@ jobs:
           branch: 'docs'
 
           # Create an orphan branch when the defined branch does not exist.
-          orphan: 'true'
+          orphan: 'false'
 ```
 
 ## Adding Your Libris API Key to Repository Secrets
