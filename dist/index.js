@@ -36223,7 +36223,7 @@ async function generate_docs(config_path, output_path) {
 
     // Load the config.
     const full_config_path = `${process.env.GITHUB_WORKSPACE}/${config_path}`;
-    if (!libfs.fileExistsSync(full_config_path)) {
+    if (!libfs.existsSync(full_config_path)) {
         throw new Error(`Defined config path "${config_path}" does not exist (full path ${full_config_path}).`);
     }
     const config = Config.load(full_config_path);
