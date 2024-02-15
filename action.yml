@@ -10,6 +10,10 @@ inputs:
     description: 'The output path for the generated html documentation.'
     required: true
     default: "./docs/index.html"
+  branch:
+    description: 'The branch where the new edits will be pushed to. Leave "" to use the branch that is being pushed.'
+    required: false
+    default: "docs"
 runs:
   using: 'node20'
   main: 'dist/index.js'

@@ -33,6 +33,10 @@ Begin by creating a GitHub workflow action file named `libris.yaml` within the `
 ###### .github/workflows/libris.yaml
 
 ```yaml
+# Libris Auto-Generate Documenation Action.
+#   Seamlessly integrate Libris with your development workflow to guarantee your documentation remains up-to-date.
+#   Our action automates the generation of documentation each time you push to your repository, ensuring accuracy and consistency without manual effort.
+
 name: Libris - Generate Documentation
 
 # Grant write permissions in order to write the generated documentation file to your repo.
@@ -80,6 +84,9 @@ jobs:
 
           # The relative output path for the generated documentation file.
           output: './docs/index.html'
+
+          # The branch where the new edits will be pushed to. Leave "" to use the branch that is being pushed.
+          branch: 'docs'
 ```
 
 ## Adding Your Libris API Key to Repository Secrets

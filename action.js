@@ -6,14 +6,16 @@ const {Client, Config} = require("./libris-js/libris.js");
 const {child_process} = require("./libris-js/libris.js");
 
 // Update a single file.
-async function update_file(path, data) {
+async function update_file(branch, path, data) {
     console.log(`Saving documentation to "${path}".`);
 
     // Vars.
     const token = process.env.GITHUB_TOKEN;
     const octokit = new Octokit({ auth: token });
     const context = github.context;
-    const branch = context.ref.replace('refs/heads/', '');
+    if (branch === "") {
+        branch = context.ref.replace('refs/heads/', '');
+    }
     const owner = context.repo.owner;
     const repo = context.repo.repo;
 
@@ -98,6 +100,10 @@ async function main() {
         if (typeof output_path !== "string") {
             throw new Error('Define input parameter "output" of type "string".');
         }
+        let branch = core.getInput("branch");
+        if (typeof branch !== "string") {
+            throw new Error('Define input parameter "branch" of type "branch".');
+        }
 
         // Check env.
         if (typeof process.env.GITHUB_TOKEN !== "string" || process.env.GITHUB_TOKEN === "") {
@@ -118,7 +124,7 @@ async function main() {
         const html = await generate_docs(config_path, output_path);
 
         // Save the file.
-        await update_file(output_path, html);
+        await update_file(branch, output_path, html);
     }
 
     // Cacth error.
