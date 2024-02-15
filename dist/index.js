@@ -36184,7 +36184,7 @@ const {Client, Config} = __nccwpck_require__(6107);
 
 // ---------------------------------------------------------
 // Github action class.
-class GithubAction {
+class Action {
     constructor() {
 
         // Check env.
@@ -36400,7 +36400,7 @@ class GithubAction {
 // ---------------------------------------------------------
 // Start.
 
-GithubAction.start();
+Action.start();
 })();
 
 module.exports = __webpack_exports__;

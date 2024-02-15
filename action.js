@@ -14,7 +14,7 @@ const {Client, Config} = require("./libris-js/libris.js");
 
 // ---------------------------------------------------------
 // Github action class.
-class GithubAction {
+class Action {
     constructor() {
 
         // Check env.
@@ -230,4 +230,4 @@ class GithubAction {
 // ---------------------------------------------------------
 // Start.
 
-GithubAction.start();
+Action.start();
