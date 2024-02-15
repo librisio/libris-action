@@ -36195,7 +36195,7 @@ async function update_file(branch, path, data) {
 
     // Check if branch exists, create if it does not
     try {
-        await my_octokit.request('GET /repos/{owner}/{repo}/git/ref/heads/{ref}', {
+        await octokit.request('GET /repos/{owner}/{repo}/git/ref/heads/{ref}', {
             owner,
             repo,
             ref: branch,
@@ -36203,11 +36203,12 @@ async function update_file(branch, path, data) {
     } catch (error) {
         if (error.status === 404) {
             // If branch does not exist, create it from the default branch (main)
-            const { data } = await my_octokit.request('GET /repos/{owner}/{repo}/git/ref/heads/main', {
+            const { data } = await octokit.request('GET /repos/{owner}/{repo}/git/ref/heads/main', {
                 owner,
                 repo,
             });
-            await my_octokit.request('POST /repos/{owner}/{repo}/git/refs', {
+            console.log("DATA:", data)
+            await octokit.request('POST /repos/{owner}/{repo}/git/refs', {
                 owner,
                 repo,
                 ref: `refs/heads/${branch}`,
