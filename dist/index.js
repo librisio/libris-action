@@ -36182,9 +36182,9 @@ async function update_file(branch, path, data) {
     const token = process.env.GITHUB_TOKEN;
     const octokit = new Octokit({ auth: token });
     const context = github.context;
-    // if (branch === "") {
+    if (branch === "") {
         branch = context.ref.replace('refs/heads/', '');
-    // }
+    }
     const owner = context.repo.owner;
     const repo = context.repo.repo;
 
@@ -36192,6 +36192,31 @@ async function update_file(branch, path, data) {
 
     // Convert content to Base64
     const content = Buffer.from(data).toString('base64');
+
+    // Check if branch exists, create if it does not
+    try {
+        await my_octokit.request('GET /repos/{owner}/{repo}/git/ref/heads/{ref}', {
+            owner,
+            repo,
+            ref: branch,
+        });
+    } catch (error) {
+        if (error.status === 404) {
+            // If branch does not exist, create it from the default branch (main)
+            const { data } = await my_octokit.request('GET /repos/{owner}/{repo}/git/ref/heads/main', {
+                owner,
+                repo,
+            });
+            await my_octokit.request('POST /repos/{owner}/{repo}/git/refs', {
+                owner,
+                repo,
+                ref: `refs/heads/${branch}`,
+                sha: data.object.sha,
+            });
+        } else {
+            throw error;
+        }
+    }
 
     // Check if the file exists and get its SHA if it does
     let sha;
