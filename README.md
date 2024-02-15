@@ -16,7 +16,7 @@ Seamlessly integrate Libris with your development workflow to guarantee your doc
 * [x] Consistency and Accuracy: Maintains high standards of consistency and accuracy in documentation with every code change.
 * [x] Time-Saving: Frees up valuable developer time by automating repetitive tasks, allowing your team to focus on development and innovation.
 
-# Integrating Libris Documentation Generator into Your Repository
+# Integrating the Action into Your Repository
 
 To facilitate automatic documentation updates within your repository, the Libris Documentation Generator Action requires write permissions and access to the GitHub-generated GITHUB_TOKEN secret. This guide outlines the steps to seamlessly integrate this action into your workflow.
 
