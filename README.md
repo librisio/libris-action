@@ -9,14 +9,14 @@
 ![Libris Docs Banner](https://raw.githubusercontent.com/librisio/.github/master/media/github/readme_banner_rounded.png)
 
 # Libris
-Seamlessly integrate Libris with your development workflow to guarantee your documentation remains up-to-date. Our action automates the generation of documentation each time you push to your repository, ensuring accuracy and consistency without manual effort.
+Seamlessly integrate Libris with your development workflow to guarantee your documentation remains up-to-date. Our GitHub Action automates the generation of documentation each time you push to your repository, ensuring accuracy and consistency without manual effort.
 
 * [x] Automatic Documentation Updates: Eliminates the need for manual updates, ensuring your documentation always matches your latest codebase.
 * [x] Seamless Integration: Easily integrates with your existing GitHub workflow, making it a hassle-free addition to your development process.
 * [x] Consistency and Accuracy: Maintains high standards of consistency and accuracy in documentation with every code change.
 * [x] Time-Saving: Frees up valuable developer time by automating repetitive tasks, allowing your team to focus on development and innovation.
 
-# Integrating the Action into Your Repository
+# Integrating our GitHub Action into Your CI/CD
 
 To facilitate automatic documentation updates within your repository, the workflow action requires write permissions and access to the GitHub-generated `GITHUB_TOKEN` secret. This guide outlines the steps to seamlessly integrate this action into your workflow.
 
@@ -100,7 +100,7 @@ jobs:
 
 For the action to access the Libris API, you must provide your Libris API Key as a secret in your repository.
 
-1. In your repository navigate to `Settings` > `Secrets and variables` > `Actions`.
+1. In your repository navigate to `Settings` ⇨ `Secrets and variables` ⇨ `Actions`.
 2. Click `New repository secret` to add a new secret.
 3. Name the secret `LIBRIS_API_KEY` and paste your Libris API Key into the value field.
 
@@ -110,9 +110,9 @@ For more details on obtaining your Libris API Key, consult the [Libris documenta
 
 Elevate your project's visibility and accessibility by setting up a GitHub Pages site to host your documentation.
 
-1. In your repository navigate to `Settings` > `Pages`.
-2. Select `Deploy from branch` from the section `Build and deployment` > `Source`.
-3. Select branch `docs` from the section `Build and deployment` > `Branch`. *This branch will not show up when the GitHub action has never been triggered.*
-4. Select folder `/docs` from the section `Build and deployment` > `Branch`.
+1. In your repository navigate to `Settings` ⇨ `Pages`.
+2. Select `Deploy from branch` from the section `Build and deployment` ⇨ `Source`.
+3. Select branch `docs` from the section `Build and deployment` ⇨ `Branch`. *This branch will not show up when the GitHub action has never been triggered.*
+4. Select folder `/docs` from the section `Build and deployment` ⇨ `Branch`.
 
 By configuring GitHub Pages to deploy from the `docs` branch and the `/docs` folder, you ensure that every update pushed to your repository triggers the automatic publication of your latest documentation. The GitHub Pages site will seamlessly update following the completion of the GitHub Action, presenting your project's documentation in a professional, accessible format.
